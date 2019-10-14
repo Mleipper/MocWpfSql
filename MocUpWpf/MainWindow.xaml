@@ -10,16 +10,17 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="709,113,0,0" VerticalAlignment="Top" Click="Button_Click" BorderBrush="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,5,0,0" Text="Enter SQL query here:" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBox x:Name="TxtInputQuery" HorizontalAlignment="Left" Margin="62,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="687" Cursor="Pen" Height="71" TextChanged="TextBox_TextChanged"/>
-        <DataGrid Margin="0,139,0,7" RenderTransformOrigin="0.5,0.5">
+        <DataGrid x:Name="QueryResult" Margin="0,139,0,7" RenderTransformOrigin="0.5,0.5">
             <DataGrid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="0.131"/>
+                    <RotateTransform Angle="0.0"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </DataGrid.RenderTransform>
         </DataGrid>
+        <ComboBox HorizontalAlignment="Left" Height="4" Margin="552,180,0,0" VerticalAlignment="Top" Width="3"/>
 
     </Grid>
 </Window>
