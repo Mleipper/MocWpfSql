@@ -42,16 +42,18 @@ namespace MocUpWpf.ADORunner
                 //var rows = dataReader.
                 for (int i = 0; i < fieldcount; i++)
                 {
-                    dataGrid.Columns.Add
+                    dataGrid.Columns.Add();
                 }
-
+                var dataGridCol = new DataGridColumn("ff");
                 // how it works for console application 
                 for (int i = 0; i < fieldcount; i++)
                 {
                     var name = dataReader.GetName(i);
+                    
                     dataGrid.Columns.Add(name);// not how to do this
                     Console.Write(name+ " | ");
                 }
+                dataGrid.Columns.Add(name);// not how to do this
                 Console.WriteLine();
                 
                 //only reads out first coloum
