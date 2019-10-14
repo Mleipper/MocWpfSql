@@ -36,7 +36,8 @@ namespace MocUpWpf.ADORunner
                 
                 while (dataReader.Read())
                 {
-
+                  var fieldcount = dataReader.FieldCount;
+                    dataReader.GetName();
                 }
 
                 foreach (var item in dataReader)
