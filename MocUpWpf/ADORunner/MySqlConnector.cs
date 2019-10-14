@@ -40,11 +40,19 @@ namespace MocUpWpf.ADORunner
                     var name = dataReader.GetName(i);
                     Console.Write(name+ " | ");
                 }
-                while (dataReader.Read())
+                Console.WriteLine();
+                
+                //only reads out first coloum
+                for (int i = 0; i < fieldcount; i++)
                 {
+                    while (dataReader.Read())
+                    {
+                        Console.WriteLine(dataReader[i]);
+                    }
+                }
                   
 
-                }
+                
 
                 foreach (var item in dataReader)
                 {
