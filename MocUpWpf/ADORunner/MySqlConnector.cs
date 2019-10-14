@@ -35,6 +35,7 @@ namespace MocUpWpf.ADORunner
                 var schema= dataReader.GetSchemaTable();
 
                 var fieldcount = dataReader.FieldCount;
+                //var rows = dataReader.
                 for (int i = 0; i < fieldcount; i++)
                 {
                     var name = dataReader.GetName(i);
@@ -47,8 +48,13 @@ namespace MocUpWpf.ADORunner
                 {
                     while (dataReader.Read())
                     {
-                        Console.WriteLine(dataReader[i]);
+                        for (int x = 0; x < fieldcount; x++)
+                        {
+                            Console.Write("| "+dataReader[x].ToString()+" |");
+                        }
+                        Console.WriteLine();
                     }
+                    
                 }
                   
 
