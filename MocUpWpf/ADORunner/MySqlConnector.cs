@@ -22,7 +22,7 @@ namespace MocUpWpf.ADORunner
 
 
 
-        public void QueryDB(string queryString, DataGrid _dataGrid)//TODO Edit this to take an argument
+        public void QueryDB(string queryString, DataGrid dataGrid)//TODO Edit this to take an argument
         {
             using var connection =
                     new MySqlConnection(_connectionString);
@@ -35,14 +35,21 @@ namespace MocUpWpf.ADORunner
                 connection.Open();
                 // datareader object
                 var dataReader = cmd.ExecuteReader();
-                _dataGrid.DataContext = dataReader;
+                
                // _dataGrid.SetBinding();// =dataReader
 
                 var fieldcount = dataReader.FieldCount;
                 //var rows = dataReader.
                 for (int i = 0; i < fieldcount; i++)
                 {
+                    dataGrid.Columns.Add
+                }
+
+                // how it works for console application 
+                for (int i = 0; i < fieldcount; i++)
+                {
                     var name = dataReader.GetName(i);
+                    dataGrid.Columns.Add(name);// not how to do this
                     Console.Write(name+ " | ");
                 }
                 Console.WriteLine();
