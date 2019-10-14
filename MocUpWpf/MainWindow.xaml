@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="325,139,0,0" VerticalAlignment="Top" Click="Button_Click" BorderBrush="Red"/>
         <TextBlock HorizontalAlignment="Left" Margin="5,5,0,0" Text="Enter SQL query here:" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="147,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="466" Cursor="Pen" Height="71" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="TxtInputQuery" HorizontalAlignment="Left" Margin="62,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="687" Cursor="Pen" Height="71" TextChanged="TextBox_TextChanged"/>
 
     </Grid>
 </Window>

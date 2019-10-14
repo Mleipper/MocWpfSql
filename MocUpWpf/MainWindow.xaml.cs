@@ -27,7 +27,14 @@ namespace MocUpWpf
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            //onClick sets value of sqlQuery to that of the entered text
+            var sqlQuery = TxtInputQuery.Text;
+            if (sqlQuery != null)
+            { 
+                // do something here with sql reader
+            }
+            Console.WriteLine(sqlQuery);
+            Console.ReadLine();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
