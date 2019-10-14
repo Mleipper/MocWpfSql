@@ -34,6 +34,7 @@ namespace MocUpWpf
             {
                 var sqlData = new MySqlConnector("Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO");
                 sqlData.QueryDB(sqlQuery,QueryResult);
+                
 
             }
 
