@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MocUpWpf.ADORunner;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,11 +31,12 @@ namespace MocUpWpf
             //onClick sets value of sqlQuery to that of the entered text
             var sqlQuery = TxtInputQuery.Text;
             if (sqlQuery != null)
-            { 
-                // do something here with sql reader
+            {
+                var sqlData = new MySqlConnector("Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO");
+                sqlData.QueryDB(sqlQuery,QueryResult);
+
             }
-            Console.WriteLine(sqlQuery);
-            Console.ReadLine();
+
             //QueryResult =; // can reference Datagrid here 
         }
 

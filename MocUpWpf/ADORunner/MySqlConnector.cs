@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
 using MySql.Data.MySqlClient;
 
 namespace MocUpWpf.ADORunner
@@ -8,18 +9,20 @@ namespace MocUpWpf.ADORunner
     public class MySqlConnector
     {
         private readonly string _connectionString;
-        private string _queryString; 
+        private string _queryString;
+        
         public  MySqlConnector(string connstring)
         {
             //"Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
             _connectionString = connstring;
             _queryString = "SELECT * FROM timelinelogger.__efmigrationshistory";
+            
         }
 
 
 
 
-        public void QueryDB(string queryString)//TODO Edit this to take an argument
+        public void QueryDB(string queryString, DataGrid _dataGrid)//TODO Edit this to take an argument
         {
             using var connection =
                     new MySqlConnection(_connectionString);
@@ -32,7 +35,8 @@ namespace MocUpWpf.ADORunner
                 connection.Open();
                 // datareader object
                 var dataReader = cmd.ExecuteReader();
-                var schema= dataReader.GetSchemaTable();
+                _dataGrid.DataContext = dataReader;
+               // _dataGrid.SetBinding();// =dataReader
 
                 var fieldcount = dataReader.FieldCount;
                 //var rows = dataReader.
