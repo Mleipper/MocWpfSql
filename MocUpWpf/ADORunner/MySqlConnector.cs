@@ -1,18 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MySql.Data.MySqlClient;
 
 namespace MocUpWpf.ADORunner
 {
     public class MySqlConnector
     {
         private readonly string _connectionString;
+        private string _queryString; 
         public  MySqlConnector(string connstring)
         {
+            //"Server=localhost;Database=ETIC;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
             _connectionString = connstring;
-
+            _queryString = "SELECT * FROM timelinelogger.__efmigrationshistory";
         }
 
+
+
+
+        public void QueryDB()//TODO Edit this to take an argument
+        {
+            using var connection =
+                    new MySqlConnection(_connectionString);
+            // CREATE COMMAND
+
+            var cmd = new MySqlCommand(_queryString, connection);
+            try
+            {
+                
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+        }
        
     }
 }
