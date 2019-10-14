@@ -11,7 +11,7 @@ namespace MocUpWpf.ADORunner
         private string _queryString; 
         public  MySqlConnector(string connstring)
         {
-            //"Server=localhost;Database=ETIC;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
+            //"Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
             _connectionString = connstring;
             _queryString = "SELECT * FROM timelinelogger.__efmigrationshistory";
         }
@@ -28,6 +28,14 @@ namespace MocUpWpf.ADORunner
             var cmd = new MySqlCommand(_queryString, connection);
             try
             {
+                connection.Open();
+                var dataReader = cmd.ExecuteReader();
+                var schema= dataReader.GetSchemaTable();
+                foreach (var item in dataReader)
+                {
+                    Console.WriteLine(item.ToString());
+                }
+                connection.Close();
                 
             }
             catch (Exception ex)
