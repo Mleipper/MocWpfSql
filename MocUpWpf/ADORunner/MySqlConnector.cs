@@ -33,11 +33,17 @@ namespace MocUpWpf.ADORunner
                 // datareader object
                 var dataReader = cmd.ExecuteReader();
                 var schema= dataReader.GetSchemaTable();
-                
+
+                var fieldcount = dataReader.FieldCount;
+                for (int i = 0; i < fieldcount; i++)
+                {
+                    var name = dataReader.GetName(i);
+                    Console.Write(name+ " | ");
+                }
                 while (dataReader.Read())
                 {
-                  var fieldcount = dataReader.FieldCount;
-                    dataReader.GetName();
+                  
+
                 }
 
                 foreach (var item in dataReader)
