@@ -35,7 +35,7 @@ namespace MocUpWpf
             }
             Console.WriteLine(sqlQuery);
             Console.ReadLine();
-            //QueryResult =; // can reference Datagrid here
+            //QueryResult =; // can reference Datagrid here 
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
