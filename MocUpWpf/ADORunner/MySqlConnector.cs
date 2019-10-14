@@ -28,9 +28,17 @@ namespace MocUpWpf.ADORunner
             var cmd = new MySqlCommand(_queryString, connection);
             try
             {
+                //create connection
                 connection.Open();
+                // datareader object
                 var dataReader = cmd.ExecuteReader();
                 var schema= dataReader.GetSchemaTable();
+                
+                while (dataReader.Read())
+                {
+
+                }
+
                 foreach (var item in dataReader)
                 {
                     Console.WriteLine(item.ToString());
