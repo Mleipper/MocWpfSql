@@ -13,6 +13,6 @@ namespace MocUpWpf.ADORunner
 
         }
 
-        public dataFrame 
+       
     }
 }
