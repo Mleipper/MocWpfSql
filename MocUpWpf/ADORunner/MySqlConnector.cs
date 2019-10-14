@@ -19,13 +19,13 @@ namespace MocUpWpf.ADORunner
 
 
 
-        public void QueryDB()//TODO Edit this to take an argument
+        public void QueryDB(string queryString)//TODO Edit this to take an argument
         {
             using var connection =
                     new MySqlConnection(_connectionString);
             // CREATE COMMAND
 
-            var cmd = new MySqlCommand(_queryString, connection);
+            var cmd = new MySqlCommand(queryString, connection);
             try
             {
                 //create connection
