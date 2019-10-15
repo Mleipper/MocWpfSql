@@ -54,7 +54,6 @@ namespace MocUpWpf.ADORunner
                 row["errorMessage"] = ex.Message.ToString();
                 dt.Rows.Add(row);
                 dataGrid.ItemsSource = dt.DefaultView;
-
             }
         }       
     }

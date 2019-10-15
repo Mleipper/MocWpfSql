@@ -37,8 +37,6 @@ namespace MocUpWpf
                 var sqlData = new MySqlConnector("Server=localhost;Database=ETIC;Uid=root;Pwd=oURtALIaBnoW");
                 sqlData.QueryDB(sqlQuery,QueryResult);     
             }
-
-            //QueryResult =; // can reference Datagrid here 
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
