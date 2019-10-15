@@ -47,7 +47,14 @@ namespace MocUpWpf.ADORunner
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                //create dataTable to display error message
+                DataTable dt = new DataTable();
+                dt.Columns.Add("errorMessage");
+                DataRow row = dt.NewRow();
+                row["errorMessage"] = ex.Message.ToString();
+                dt.Rows.Add(row);
+                dataGrid.ItemsSource = dt.DefaultView;
+
             }
         }       
     }
