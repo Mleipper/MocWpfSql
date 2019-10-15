@@ -30,7 +30,7 @@ namespace MocUpWpf
         {
             //onClick sets value of sqlQuery to that of the entered text
             var sqlQuery = TxtInputQuery.Text;
-            if (sqlQuery != null)
+            if (sqlQuery != null && sqlQuery!="")
             {
                 //"Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
                 //"Server=localhost;Database=ETIC;Uid=root;Pwd=oURtALIaBnoW"
