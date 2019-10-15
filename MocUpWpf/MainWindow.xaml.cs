@@ -32,10 +32,10 @@ namespace MocUpWpf
             var sqlQuery = TxtInputQuery.Text;
             if (sqlQuery != null)
             {
-                var sqlData = new MySqlConnector("Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO");
-                sqlData.QueryDB(sqlQuery,QueryResult);
-                
-
+                //"Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
+                //"Server=localhost;Database=ETIC;Uid=root;Pwd=oURtALIaBnoW"
+                var sqlData = new MySqlConnector("Server=localhost;Database=ETIC;Uid=root;Pwd=oURtALIaBnoW");
+                sqlData.QueryDB(sqlQuery,QueryResult);     
             }
 
             //QueryResult =; // can reference Datagrid here 

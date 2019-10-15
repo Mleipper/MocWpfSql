@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using System.Windows.Controls;
 using MySql.Data.MySqlClient;
@@ -9,19 +10,20 @@ namespace MocUpWpf.ADORunner
     public class MySqlConnector
     {
         private readonly string _connectionString;
-        private string _queryString;
-        
+                
         public  MySqlConnector(string connstring)
         {
+            // return "Server=localhost;Database=ETIC;Uid=root;Pwd=oURtALIaBnoW";
             //"Server=localhost;Database=timelinelogger;Uid=root;Pwd=qL26^N6lp&WU2#a3in#9%qOG$Y^sQ^uO"
             _connectionString = connstring;
-            _queryString = "SELECT * FROM timelinelogger.__efmigrationshistory";
-            
+            //_queryString = "SELECT * FROM timelinelogger.__efmigrationshistory";            
         }
 
-
-
-
+        /// <summary>
+        /// querys a MySQL database and binds the result to a datagrid for presentaion in the view.
+        /// </summary>
+        /// <param name="queryString">A string representing the query on the dataBase</param>
+        /// <param name="dataGrid">The Datagrid From the output view.</param>        
         public void QueryDB(string queryString, DataGrid dataGrid)//TODO Edit this to take an argument
         {
             using var connection =
@@ -33,60 +35,20 @@ namespace MocUpWpf.ADORunner
             {
                 //create connection
                 connection.Open();
-                // datareader object
+                // datareader object creation
                 var dataReader = cmd.ExecuteReader();
-                
-               // _dataGrid.SetBinding();// =dataReader
-
-                var fieldcount = dataReader.FieldCount;
-                //var rows = dataReader.
-                for (int i = 0; i < fieldcount; i++)
-                {
-                    dataGrid.Columns.Add();
-                }
-                var dataGridCol = new DataGridColumn("ff");
-                // how it works for console application 
-                for (int i = 0; i < fieldcount; i++)
-                {
-                    var name = dataReader.GetName(i);
-                    
-                    dataGrid.Columns.Add(name);// not how to do this
-                    Console.Write(name+ " | ");
-                }
-                dataGrid.Columns.Add(name);// not how to do this
-                Console.WriteLine();
-                
-                //only reads out first coloum
-                for (int i = 0; i < fieldcount; i++)
-                {
-                    while (dataReader.Read())
-                    {
-                        for (int x = 0; x < fieldcount; x++)
-                        {
-                            Console.Write("| "+dataReader[x].ToString()+" |");
-                        }
-                        Console.WriteLine();
-                    }
-                    
-                }
-                  
-
-                
-
-                foreach (var item in dataReader)
-                {
-                    Console.WriteLine(item.ToString());
-                }
-                connection.Close();
-                
+                //Datatable Creation
+                DataTable dt = new DataTable();
+                // _dataGrid.SetBinding();// =dataReader
+                dt.Load(dataReader);
+                //bind DataTable to Datagrid
+                dataGrid.ItemsSource = dt.DefaultView;            
+                connection.Close();                
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
-
-        }
-       
+        }       
     }
 }
